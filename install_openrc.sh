@@ -46,6 +46,13 @@ then
 	echo "[Create turbo-fan service]"
 	cat << EOF > $service_dir/turbo-fan
 #!/sbin/openrc-run
+### BEGIN INIT INFO
+# Provides:          turbo-fan
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Description:       turbo and rgb key on acer
+### END INIT INFO
+
 depend() {
 	after bootmisc consolefont modules netmount
 	after quota keymaps
